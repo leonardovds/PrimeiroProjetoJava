@@ -1,26 +1,19 @@
 public class Conta {
     private double saldo;
     private String numeroConta;
-    private String tipoConta;
     
-    public Conta(double saldo, String numeroConta, String tipoConta){
+    public Conta(double saldo, String numeroConta){
         this.saldo = saldo;
         this.numeroConta = numeroConta;
-        this.tipoConta = tipoConta;
     }
 
-    public Conta(String numeroConta, String tipoConta){
+    public Conta(String numeroConta){
         this.numeroConta = numeroConta;
-        this.tipoConta = tipoConta;
         this.saldo = 0.00;
     }
 
     public double GetSaldo(){
         return this.saldo;
-    }
-
-    public String GetTipoConta(){
-        return this.tipoConta;
     }
 
     public String GetNumeroConta(){
@@ -31,10 +24,19 @@ public class Conta {
         this.saldo += valorAdicionar;
     }
 
+    public void saca(double valor){
+        if (this.temSaldo(valor)){
+            this.saldo -= valor;
+        }
+    }
+
+    public boolean temSaldo(double valor){
+        return (saldo >= valor)? true:false;
+    }
+
     @Override
     public String toString() {
-        return this.tipoConta +
-                " nº " + this.numeroConta + 
+        return  "Conta nº " + this.numeroConta + 
                 " possui R$" + this.saldo + 
                 " de saldo";
     }

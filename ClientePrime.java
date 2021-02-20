@@ -15,8 +15,8 @@ public class ClientePrime extends Cliente{
         this.senha = senha;
     }
 
-    public String PegaCpf(){
-        return super.GetCpf();
+    public String GetCpf(){//reescrita do método
+        return super.cpf;//protected permite acesso da classe filha
     }
 
     @Override
