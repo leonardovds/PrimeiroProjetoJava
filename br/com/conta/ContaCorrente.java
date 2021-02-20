@@ -1,3 +1,5 @@
+package br.com.conta;
+
 public class ContaCorrente extends Conta {
 
     public ContaCorrente(String numeroConta){

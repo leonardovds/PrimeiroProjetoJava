@@ -1,3 +1,5 @@
+package br.com.conta;
+
 public class ContaPoupanca extends Conta{
     public ContaPoupanca(String numeroConta){
         super(numeroConta);

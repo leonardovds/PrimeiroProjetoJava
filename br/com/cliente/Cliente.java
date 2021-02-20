@@ -1,3 +1,5 @@
+package br.com.cliente;
+
 public class Cliente {
     private String nome;
     protected String cpf;

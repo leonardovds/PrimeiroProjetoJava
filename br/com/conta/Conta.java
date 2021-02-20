@@ -1,3 +1,5 @@
+package br.com.conta;
+
 public class Conta {
     private double saldo;
     private String numeroConta;

@@ -1,3 +1,6 @@
+import br.com.conta.*;
+import br.com.cliente.*;
+
 class Main {
     public static void main(String args[]){
         Cliente clienteUm = new Cliente("Leonardo Vitor dos Santos", "123.456.789-11", 25);

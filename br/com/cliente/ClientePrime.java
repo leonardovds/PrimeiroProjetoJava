@@ -1,3 +1,5 @@
+package br.com.cliente;
+
 public class ClientePrime extends Cliente{
 
     private boolean usaApp = false;
