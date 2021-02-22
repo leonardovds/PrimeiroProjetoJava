@@ -10,8 +10,16 @@ public class ContaPoupanca extends Conta{
     }
 
     @Override
+    public void AdicionaSaldo(double valorAdicionar) {
+        valorAdicionar -= (valorAdicionar * 0.05);
+        this.saldo += valorAdicionar;
+    }
+
+    @Override
     public void saca(double valor) {
         valor *= 1.25;//taxa sacar conta poupança
-        super.saca(valor);
+        if (this.temSaldo(valor)){
+            saldo -= valor;
+        }
     }
 }

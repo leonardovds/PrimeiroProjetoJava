@@ -1,9 +1,9 @@
 package br.com.cliente;
 
-public class Cliente {
-    private String nome;
+public abstract class Cliente {
+    protected String nome;
     protected String cpf;
-    private int idade;
+    protected int idade;
 
     public Cliente(String nome, String cpf, int idade){
         this.nome = nome;
@@ -21,12 +21,6 @@ public class Cliente {
 
     public int GetIdade(){
         return this.idade;
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente: " + this.nome +
-                "\nCPF: " + this.cpf;
     }
 
 }

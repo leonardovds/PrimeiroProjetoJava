@@ -1,8 +1,8 @@
 package br.com.conta;
 
-public class Conta {
-    private double saldo;
-    private String numeroConta;
+public abstract class Conta {
+    protected double saldo;
+    protected String numeroConta;
     
     public Conta(double saldo, String numeroConta){
         this.saldo = saldo;
@@ -22,15 +22,9 @@ public class Conta {
         return this.numeroConta;
     }
 
-    public void AdicionaSaldo(double valorAdicionar){
-        this.saldo += valorAdicionar;
-    }
+    public abstract void AdicionaSaldo(double valorAdicionar);
 
-    public void saca(double valor){
-        if (this.temSaldo(valor)){
-            this.saldo -= valor;
-        }
-    }
+    public abstract void saca(double valor);
 
     public boolean temSaldo(double valor){
         return (saldo >= valor)? true:false;

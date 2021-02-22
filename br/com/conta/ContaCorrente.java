@@ -11,8 +11,16 @@ public class ContaCorrente extends Conta {
     }
 
     @Override
+    public void AdicionaSaldo(double valorAdicionar) {
+        valorAdicionar -= (valorAdicionar*0.1);
+        this.saldo += valorAdicionar;
+    }
+
+    @Override
     public void saca(double valor) {
         valor *= 1.1; //taxa sacar conta corrente
-        super.saca(valor);
+        if (this.temSaldo(valor)){
+            this.saldo -= valor;
+        }
     }
 }

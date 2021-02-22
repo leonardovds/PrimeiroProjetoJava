@@ -6,24 +6,21 @@ public class ClientePrime extends Cliente{
     private String login;
     private String senha;
 
-    public ClientePrime(String nome, String cpf, int idade){
+    public ClientePrime(String nome, String cpf, int idade){//cliente prime sem uso do sistema
         super(nome, cpf, idade);
     }
     
-    public ClientePrime(String nome, String cpf, int idade, Boolean usaApp, String login, String senha){
+    public ClientePrime(String nome, String cpf, int idade, Boolean usaApp, String login, String senha){//cliente prime com uso do sistema
         super(nome, cpf, idade);
         this.usaApp = usaApp;
         this.login = login;
         this.senha = senha;
     }
 
-    public String GetCpf(){//reescrita do método
-        return super.cpf;//protected permite acesso da classe filha
-    }
-
     @Override
     public String toString() {
-        return super.toString()
-        + " é um cliente prime";
+        return "Cliente: " + this.nome +
+                "\nCPF: " + this.cpf + 
+                " é um cliente prime";
     }
 }
