@@ -1,20 +1,29 @@
 package br.com.cliente;
 
-public class ClientePrime extends Cliente{
+import br.com.autentica.*;
+import br.com.utilidades.*;
 
-    private boolean usaApp = false;
-    private String login;
-    private String senha;
+public class ClientePrime extends Cliente implements Autenticavel{
+
+    private AutenticadorSistema autenticadorSistema = new AutenticadorSistema();
 
     public ClientePrime(String nome, String cpf, int idade){//cliente prime sem uso do sistema
         super(nome, cpf, idade);
     }
-    
-    public ClientePrime(String nome, String cpf, int idade, Boolean usaApp, String login, String senha){//cliente prime com uso do sistema
-        super(nome, cpf, idade);
-        this.usaApp = usaApp;
-        this.login = login;
-        this.senha = senha;
+
+    @Override
+    public boolean Autenticacao(String login, String senha) {
+        return false;
+    }
+
+    @Override
+    public void setLogin(String login) {
+        this.autenticadorSistema.setLogin(login);
+    }
+
+    @Override
+    public void setSenha(String senha) {
+        this.autenticadorSistema.setSenha(senha);
     }
 
     @Override
