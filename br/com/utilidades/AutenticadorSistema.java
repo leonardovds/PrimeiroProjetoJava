@@ -11,5 +11,9 @@ public class AutenticadorSistema {
     public void setSenha(String senha){
         this.senha = senha;
     }
+
+    public boolean Autenticacao(String login, String senha){
+        return ((this.senha == senha) && (this.login == login))? true: false;
+    }
     
 }
