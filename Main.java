@@ -10,8 +10,7 @@ class Main {
 
             continua = Menu.MenuInicial();
             
-        }while(continua);
-        
+        }while(continua);        
         
     }
     }

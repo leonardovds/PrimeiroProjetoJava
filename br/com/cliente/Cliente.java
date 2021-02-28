@@ -2,6 +2,8 @@ package br.com.cliente;
 
 import java.util.ArrayList;
 
+import jdk.vm.ci.aarch64.AArch64.CPUFeature;
+
 public abstract class Cliente {
     protected String nome;
     protected String cpf;
@@ -28,6 +30,19 @@ public abstract class Cliente {
 
     public static void AdicionaCliente(Cliente novoCliente){
         listaCliente.add(novoCliente);
+    }
+
+    public static Cliente RetornaClientePeloCPF(String cpf){
+        for(Cliente cliente : listaCliente){
+            if (cliente.cpf.equals(cpf)){
+                return cliente;
+            }
+        }
+        return null;
+    }
+
+    public static void RemoveCliente(Cliente cliente){
+        listaCliente.remove(cliente);
     }
 
     public static void MostraClientes(){
