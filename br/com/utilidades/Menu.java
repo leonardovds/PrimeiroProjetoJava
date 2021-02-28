@@ -7,12 +7,12 @@ import br.com.conta.*;
 
 public class Menu {
 
-    private static Scanner scan = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in);
 
-    public static boolean MenuInicial() {
+    public boolean MenuInicial() {
 
-        String textoConsole = "O que deseja fazer no sistema?\n1-Criar cliente\n2-Criar conta\n3-Ver clientes\n"
-                + "4-Editar cliente\n5-Sair\n";
+        String textoConsole = "O que deseja fazer no sistema?\n1-Criar cliente\n2-Criar conta corrente\n3-Ver clientes\n"
+                + "4-Ver contas\n5-Editar cliente\n6-Sair\n";
 
         System.out.println(textoConsole);
         int n = scan.nextInt();
@@ -23,17 +23,22 @@ public class Menu {
                 CriaCliente();
                 break;
             case 2:
-                System.out.println("Criar conta");
+                System.out.println("Criar conta corrente");
+                CriarConta();
                 break;
             case 3:
                 System.out.println("Ver clientes");
                 MostraClientes();
                 break;
             case 4:
+                System.out.println("Ver contas");
+                MostrarContas();
+                break;
+            case 5:
                 System.out.println("Editar cliente");
                 EditaCliente();
                 break;
-            case 5:
+            case 6:
                 System.out.println("Até mais :)");
                 return false;
             default:
@@ -45,7 +50,7 @@ public class Menu {
 
     }
 
-    private static void CriaCliente() {
+    private void CriaCliente() {
 
         System.out.println("Informe o nome do cliente:\n");
         String nome = scan.next();
@@ -62,12 +67,52 @@ public class Menu {
 
     }
 
-    private static void MostraClientes() {
+    private void MostraClientes() {
 
         ClientePrime.MostraClientes();
     }
 
-    private static void EditaCliente() {
+    private void CriarConta() {
+        System.out.println("Deseja criar conta já com saldo?\n1- Sim\n2- Não");
+        int n = scan.nextInt();
+
+        switch (n) {
+            case 1:
+                ContaComSaldo();
+                break;
+            case 2:
+                ContaSemSaldo();
+                break;
+            default:
+                System.out.println("Opção inválida");
+                return;
+        }
+    }
+
+    private void ContaComSaldo() {
+        System.out.println("Informe o número da conta:");
+        String numeroConta = scan.next();
+
+        System.out.println("Informe o saldo da conta:");
+        double saldo = scan.nextDouble();
+
+        ContaCorrente conta = new ContaCorrente(saldo, numeroConta);
+        Conta.AdicionaConta(conta);
+    }
+
+    private void ContaSemSaldo() {
+        System.out.println("Informe o número da conta:");
+        String numeroConta = scan.next();
+
+        ContaCorrente conta = new ContaCorrente(numeroConta);
+        Conta.AdicionaConta(conta);
+    }
+
+    private void MostrarContas() {
+        Conta.VerContas();
+    }
+
+    private void EditaCliente() {
 
         System.out.println("Digite o CPF do cliente que deseja editar");
         String cpfEditar = scan.next();

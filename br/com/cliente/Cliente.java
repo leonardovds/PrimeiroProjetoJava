@@ -2,8 +2,6 @@ package br.com.cliente;
 
 import java.util.ArrayList;
 
-import jdk.vm.ci.aarch64.AArch64.CPUFeature;
-
 public abstract class Cliente {
     protected String nome;
     protected String cpf;

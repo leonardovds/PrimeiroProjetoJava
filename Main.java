@@ -1,4 +1,3 @@
-import br.com.conta.*;
 import br.com.utilidades.*;
 
 class Main {
@@ -6,9 +5,11 @@ class Main {
        
         boolean continua;
 
+        Menu menu = new Menu();
+
         do{
 
-            continua = Menu.MenuInicial();
+            continua = menu.MenuInicial();
             
         }while(continua);        
         
