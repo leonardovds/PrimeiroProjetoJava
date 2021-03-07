@@ -4,10 +4,13 @@ import java.util.Scanner;
 
 import br.com.cliente.*;
 import br.com.conta.*;
+import br.com.dao.*;
 
 public class Menu {
 
     private Scanner scan = new Scanner(System.in);
+    private DaoCliente daoCliente = new DaoCliente();
+    private DaoConta daoConta = new DaoConta();
 
     public boolean MenuInicial() {
 
@@ -63,13 +66,13 @@ public class Menu {
 
         ClientePrime cliente = new ClientePrime(nome, CPF, idade);
 
-        ClientePrime.AdicionaCliente(cliente);
+        daoCliente.addLista(cliente);
 
     }
 
     private void MostraClientes() {
 
-        ClientePrime.MostraClientes();
+        daoCliente.mostraClientes();
     }
 
     private void CriarConta() {
@@ -97,7 +100,7 @@ public class Menu {
         double saldo = scan.nextDouble();
 
         ContaCorrente conta = new ContaCorrente(saldo, numeroConta);
-        Conta.AdicionaConta(conta);
+        daoConta.addLista(conta);
     }
 
     private void ContaSemSaldo() {
@@ -105,11 +108,11 @@ public class Menu {
         String numeroConta = scan.next();
 
         ContaCorrente conta = new ContaCorrente(numeroConta);
-        Conta.AdicionaConta(conta);
+        daoConta.addLista(conta);
     }
 
     private void MostrarContas() {
-        Conta.VerContas();
+        daoConta.mostraContas();
     }
 
     private void EditaCliente() {
@@ -117,7 +120,7 @@ public class Menu {
         System.out.println("Digite o CPF do cliente que deseja editar");
         String cpfEditar = scan.next();
 
-        Cliente clienteEditar = Cliente.RetornaClientePeloCPF(cpfEditar);
+        Cliente clienteEditar = daoCliente.retornaClientePorCPF(cpfEditar);
 
         if (clienteEditar == null) {
             System.out.println("Cliente não encontrado.");
@@ -130,7 +133,7 @@ public class Menu {
             switch (n) {
                 case 1:
                     System.out.println("Removendo cliente");
-                    Cliente.RemoveCliente(clienteEditar);
+                    daoCliente.removeLista(clienteEditar);
                     break;
                 default:
                     System.out.println("Opção inválida. Saindo...");

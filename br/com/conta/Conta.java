@@ -1,11 +1,8 @@
 package br.com.conta;
 
-import java.util.ArrayList;
-
 public abstract class Conta {
     protected double saldo;
     protected String numeroConta;
-    protected static ArrayList<Conta> listaContas = new ArrayList<>();
     
     public Conta(double saldo, String numeroConta){
         this.saldo = saldo;
@@ -31,16 +28,6 @@ public abstract class Conta {
 
     public boolean temSaldo(double valor){
         return (saldo >= valor)? true:false;
-    }
-
-    public static void AdicionaConta(Conta conta){
-        listaContas.add(conta);
-    }
-
-    public static void VerContas(){
-        for (Conta conta: listaContas){
-            System.out.println(conta);
-        }
     }
 
     @Override

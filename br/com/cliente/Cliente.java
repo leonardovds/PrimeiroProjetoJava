@@ -1,12 +1,9 @@
 package br.com.cliente;
 
-import java.util.ArrayList;
-
 public abstract class Cliente {
     protected String nome;
     protected String cpf;
     protected int idade;
-    protected static ArrayList<Cliente> listaCliente = new ArrayList<>();
 
     public Cliente(String nome, String cpf, int idade){
         this.nome = nome;
@@ -24,29 +21,6 @@ public abstract class Cliente {
 
     public int GetIdade(){
         return this.idade;
-    }
-
-    public static void AdicionaCliente(Cliente novoCliente){
-        listaCliente.add(novoCliente);
-    }
-
-    public static Cliente RetornaClientePeloCPF(String cpf){
-        for(Cliente cliente : listaCliente){
-            if (cliente.cpf.equals(cpf)){
-                return cliente;
-            }
-        }
-        return null;
-    }
-
-    public static void RemoveCliente(Cliente cliente){
-        listaCliente.remove(cliente);
-    }
-
-    public static void MostraClientes(){
-        for (Cliente cliente : listaCliente){
-            System.out.println(cliente);
-        }
-    }
+    }   
 
 }
